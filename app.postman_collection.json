@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "a938988c-58ea-44f7-8cf0-4d6a0a9cfc41",
+		"name": "app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27853167"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "create account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/account?name=admin&secret=admin",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"account"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "admin"
+								},
+								{
+									"key": "secret",
+									"value": "admin"
+								}
+							]
+						},
+						"description": "В качестве входных данных использует логин и пароль пользователя. Добавляет нового пользователя в систему."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "session",
+			"item": [
+				{
+					"name": "create token",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/session?name=admin&secret=admin",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"session"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "admin"
+								},
+								{
+									"key": "secret",
+									"value": "admin"
+								}
+							]
+						},
+						"description": "В качестве входных данных использует логин и пароль пользователя. Запускает рабочую сессию и выдает случайно сгенерированный токен."
+					},
+					"response": []
+				},
+				{
+					"name": "delete token",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/session?token=y 1 q m d g 6 9 f b",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"session"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "y 1 q m d g 6 9 f b"
+								}
+							]
+						},
+						"description": "В качестве входных данных использует созданный пользователем токен. Удаляет его при окончании рабочей сессии"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "note",
+			"item": [
+				{
+					"name": "create note",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/note?token=z x 5 0 j 4 9 a o u&title=NewNote&content=Content",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "z x 5 0 j 4 9 a o u"
+								},
+								{
+									"key": "title",
+									"value": "NewNote"
+								},
+								{
+									"key": "content",
+									"value": "Content"
+								}
+							]
+						},
+						"description": "В качестве входных данных использует токен пользователя, заголовок и содержимое заметки. Создает новую заметку с введенным названием и содержимым"
+					},
+					"response": []
+				},
+				{
+					"name": "Get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/note?token=z x 5 0 j 4 9 a o u",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "z x 5 0 j 4 9 a o u"
+								}
+							]
+						},
+						"description": "В качестве входных данных использует токен пользователя. Выводит список заметок пользователя"
+					},
+					"response": []
+				},
+				{
+					"name": "Get note",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/note?id=4&token=z x 5 0 j 4 9 a o u",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								},
+								{
+									"key": "token",
+									"value": "z x 5 0 j 4 9 a o u"
+								}
+							]
+						},
+						"description": "В качестве входных данных использует уникальный номер заметки и токен пользователя. Возвращает содержимое заметки"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit note",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/note?id=4&token=z x 5 0 j 4 9 a o u&title=NewTitle&content=NewContent",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								},
+								{
+									"key": "token",
+									"value": "z x 5 0 j 4 9 a o u"
+								},
+								{
+									"key": "title",
+									"value": "NewTitle"
+								},
+								{
+									"key": "content",
+									"value": "NewContent"
+								}
+							]
+						},
+						"description": "В качестве входных данных используется уникальный номер заметки, токен пользователя, Заголовок, который будет на месте старого и содержание, которое заменит старое. Возвращает отредактированную заметку"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete note",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://kejynn.pythonanywhere.com/note?id=4&token=z x 5 0 j 4 9 a o u",
+							"protocol": "http",
+							"host": [
+								"kejynn",
+								"pythonanywhere",
+								"com"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								},
+								{
+									"key": "token",
+									"value": "z x 5 0 j 4 9 a o u"
+								}
+							]
+						},
+						"description": "StartFragment\n\nВ качестве входных данных использует уникальный номер заметки и токен пользователя. Удаляет выбранную заметку"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
